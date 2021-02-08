@@ -18,7 +18,10 @@ export default courseName => {
         number: courses[i].number,
         title: courses[i].title,
         crossListed: courses[i]['cross-listed'],
-        prereqs: courses[i].prereqs,
+        prereqs:
+          courses[i].prereqs !== undefined && !Array.isArray(courses[i].prereqs) // checking if prereqs is a string instead of array, fixing if so
+            ? [courses[i].prereqs]
+            : courses[i].prereqs,
         description: courses[i].description,
       }
 
