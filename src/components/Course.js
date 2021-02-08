@@ -3,6 +3,8 @@ import s from 'styled-components'
 
 // wrapper to allow for added shadow on hovering
 const CourseWrapper = s.div`
+    transition: 0.5s;
+
     &:hover {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
