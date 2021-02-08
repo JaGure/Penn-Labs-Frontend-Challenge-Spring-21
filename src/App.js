@@ -10,16 +10,21 @@ class App extends Component {
     return (
       <>
         <Nav />
-        <div style={{
-          width: '100%',
-          boxSizing: 'border-box',
-          padding: '0 calc(1rem + 10%)',
-        }}>
-          <Courses />
-          <Cart />
-        </div>
+
+        <section className="hero is-light is-fullheight-with-navbar">
+          <div className="hero-body">
+            <div className="container">
+              <div className="columns">
+                <div className="column is-one-third box">
+                  <Courses />
+                </div>
+                <div className="column box"></div>
+              </div>
+            </div>
+          </div>
+        </section>
       </>
-    );
+    )
   }
 }
 
