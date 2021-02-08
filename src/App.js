@@ -30,7 +30,7 @@ const App = () => {
               <div className="column is-one-third box">
                 <Courses setCurrentCourseInfo={setCurrentCourseInfo} />
               </div>
-              <div className="column box">
+              <div className="column box ml-3">
                 <CourseDescription currentCourseInfo={currentCourseInfo} />
               </div>
             </div>
