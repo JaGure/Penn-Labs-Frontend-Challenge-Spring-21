@@ -2,7 +2,7 @@
   {
     "dept": "CIS",
     "number": 110,
-    "title": "Introduction to Computer Programming (with Java, for Beginners",
+    "title": "Introduction to Computer Programming (with Java, for Beginners)",
     "description": "Introduction to Computer Programming is the first course in our series introducing students to computer science. In this class you will learn the fundamentals of computer programming in Java, with emphasis on applications in science and engineering. You will also learn about the broader field of computer science and algorithmic thinking, the fundamental approach that computer scientists take to solving problems."
   },
   {
@@ -41,7 +41,7 @@
   {
     "dept": "CIS",
     "number": 160,
-    "title": "Mathematical Foundations of Computer Scienc",
+    "title": "Mathematical Foundations of Computer Science",
     "description": "What are the basic mathematical concepts and techniques needed in computer science? This course provides an introduction to proof principles and logics, functions and relations, induction principles, combinatorics and graph theory, as well as a rigorous grounding in writing and reading mathematical proofs."
   },
   {

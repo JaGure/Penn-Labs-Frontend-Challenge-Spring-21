@@ -3,7 +3,7 @@ import './App.css'
 
 import Nav from './components/Nav'
 import Courses from './components/Courses'
-import CourseDescription from './components/CourseDescription'
+import MessageBox from './components/MessageBox'
 
 const App = () => {
   // top-level state for managing the current course description being viewed
@@ -31,7 +31,7 @@ const App = () => {
                 <Courses setCurrentCourseInfo={setCurrentCourseInfo} />
               </div>
               <div className="column box ml-3">
-                <CourseDescription currentCourseInfo={currentCourseInfo} />
+                <MessageBox currentCourseInfo={currentCourseInfo} />
               </div>
             </div>
           </div>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import s from 'styled-components'
+
 import getCourseInfoFromName from '../logic/getCourseInfoFromName'
 
-// wrapper to allow for added shadow on hovering
+// wrapper to allow for some extra fine-tuned styling beyond bulma classes
 const CourseWrapper = s.div`
     transition: 0.5s;
 
@@ -14,6 +15,8 @@ const CourseWrapper = s.div`
 `
 
 const Course = props => {
+  // currentCourseInfo: the course information being displayed in the description box (bubbled down from App)
+  // coureInfo: *this* course's internal information
   const { courseName, setCurrentCourseInfo } = props
   const [courseInfo, setCourseInfo] = useState({})
   const [hasCourseBeenClicked, setHasCourseBeenClicked] = useState(false)
@@ -46,7 +49,7 @@ const Course = props => {
     e.stopPropagation()
   }
 
-  // coures name on the left, add to cart button on the right
+  // course name on the left, add to cart button on the right
   return (
     <>
       <CourseWrapper className={wrapperClassName} onClick={handleCourseInfo}>
