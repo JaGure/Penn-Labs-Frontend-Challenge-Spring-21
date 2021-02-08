@@ -58,9 +58,7 @@ const Course = props => {
 
         <div className="level-right">
           <div className="level-item">
-            {isInCart ? ( // don't display the add button if the course is in the cart
-              <></>
-            ) : (
+            {!isInCart && ( // don't display the add button if the course is in the cart
               <a
                 className="button is-info is-light"
                 onClick={e => addCourseToCart(e)}

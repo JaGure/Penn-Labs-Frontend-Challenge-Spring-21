@@ -1,6 +1,8 @@
 import React from 'react'
 import courses from '../data/courses'
 
+import WelcomeMessage from './WelcomeMessage'
+
 const CourseDescription = props => {
   const {
     dept,
@@ -11,7 +13,7 @@ const CourseDescription = props => {
     description,
   } = props.currentCourseInfo
 
-  return <div>{number}</div>
+  return <>{number === 0 ? <WelcomeMessage /> : <div>b</div>}</>
 }
 
 export default CourseDescription
