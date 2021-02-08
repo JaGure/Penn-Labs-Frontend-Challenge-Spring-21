@@ -11,7 +11,7 @@ class App extends Component {
       <>
         <Nav />
 
-        <section className="hero is-light is-fullheight-with-navbar">
+        <section className="hero has-background-light is-fullheight-with-navbar">
           <div className="hero-body">
             <div className="container">
               <div className="columns">

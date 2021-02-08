@@ -5,6 +5,7 @@ import s from 'styled-components'
 import Course from './Course'
 
 const Container = s.div`
+  height: 80vh;
   overflow-y: scroll;
 `
 
