@@ -21,6 +21,7 @@ export default courseName => {
         prereqs: courses[i].prereqs,
         description: courses[i].description,
       }
+
       return course
     }
   }
