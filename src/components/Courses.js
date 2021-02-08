@@ -9,10 +9,13 @@ const Container = s.div`
   overflow-y: scroll;
 `
 
-export default () => (
+export default props => (
   <Container>
     {courses.map(({ dept, number }) => (
-      <Course courseName={`${dept}-${number}`} />
+      <Course
+        courseName={`${dept}-${number}`}
+        setCurrentCourseInfo={props.setCurrentCourseInfo}
+      />
     ))}
   </Container>
 )
