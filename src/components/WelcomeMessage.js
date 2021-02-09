@@ -13,7 +13,7 @@ const WelcomeMessage = () => {
         Welcome to Penn Course Cart!
       </p>
       <p className="subtitle is-italic is-6 has-text-centered">
-        Click on a course ID to get started
+        Click on a course to get started
       </p>
     </WelcomeMesssageWrapper>
   )
