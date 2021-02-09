@@ -15,6 +15,7 @@ export default props => (
       <Course
         courseName={`${dept}-${number}`}
         setCurrentCourseInfo={props.setCurrentCourseInfo}
+        addCourseToCart={props.addCourseToCart}
       />
     ))}
   </Container>

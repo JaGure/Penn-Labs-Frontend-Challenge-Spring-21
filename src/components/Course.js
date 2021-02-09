@@ -17,7 +17,8 @@ const CourseWrapper = s.div`
 const Course = props => {
   // currentCourseInfo: the course information being displayed in the description box (bubbled down from App)
   // coureInfo: *this* course's internal information
-  const { courseName, setCurrentCourseInfo } = props
+  const { courseName, setCurrentCourseInfo, addCourseToCart } = props
+
   const [courseInfo, setCourseInfo] = useState({})
   const [hasCourseBeenClicked, setHasCourseBeenClicked] = useState(false)
   const [isInCart, setIsInCart] = useState(false)
@@ -40,11 +41,29 @@ const Course = props => {
     }
   }
 
-  // adds the course to the cart and changes some state to update the rendering
-  const addCourseToCart = e => {
-    // once the course has been added to the cart, updates aspects of state that will change how it renders
-    setWrapperClassName(wrapperClassName + ' has-background-light')
-    setIsInCart(true)
+  // adds the course to the cart, if possible, and changes some state to update the rendering
+  const handleAddButtonClick = e => {
+    // this temp variable is here in case the course has yet to be cliked. Even if we set
+    // courseInfo inside this function, it won't update for us to use within the function
+    // body, so we need another way to access the data multiple times so we can update
+    // courseInfo *and* send it to the cart
+    let courseInfoTemp = courseInfo
+
+    // if the user has never clicked on the course when they add to cart, the course's info has yet to be stored
+    if (!hasCourseBeenClicked) {
+      setHasCourseBeenClicked(true)
+
+      courseInfoTemp = getCourseInfoFromName(courseName)
+      setCourseInfo(courseInfoTemp)
+    }
+
+    const courseAdded = addCourseToCart(courseInfoTemp)
+
+    if (courseAdded) {
+      // once the course has been added to the cart, updates aspects of state that will change how it renders
+      setWrapperClassName(wrapperClassName + ' has-background-light')
+      setIsInCart(true)
+    }
 
     e.stopPropagation()
   }
@@ -64,7 +83,7 @@ const Course = props => {
             {!isInCart && ( // don't display the add button if the course is in the cart
               <a
                 className="button is-info is-light"
-                onClick={e => addCourseToCart(e)}
+                onClick={e => handleAddButtonClick(e)}
               >
                 Add To Cart
               </a>
