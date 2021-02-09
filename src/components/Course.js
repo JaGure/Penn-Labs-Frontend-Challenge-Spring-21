@@ -17,7 +17,12 @@ const CourseWrapper = s.div`
 const Course = props => {
   // currentCourseInfo: the course information being displayed in the description box (bubbled down from App)
   // coureInfo: *this* course's internal information
-  const { courseName, setCurrentCourseInfo, addCourseToCart } = props
+  const {
+    courseName,
+    setCurrentCourseInfo,
+    addCourseToCart,
+    hideCourse,
+  } = props
 
   const [courseInfo, setCourseInfo] = useState({})
   const [hasCourseBeenClicked, setHasCourseBeenClicked] = useState(false)
@@ -71,26 +76,28 @@ const Course = props => {
   // course name on the left, add to cart button on the right
   return (
     <>
-      <CourseWrapper className={wrapperClassName} onClick={handleCourseInfo}>
-        <div className="level-left">
-          <div className="level-item">
-            <p className="is-size-4 has-text-weight-bold">{courseName}</p>
+      {!hideCourse && (
+        <CourseWrapper className={wrapperClassName} onClick={handleCourseInfo}>
+          <div className="level-left">
+            <div className="level-item">
+              <p className="is-size-4 has-text-weight-bold">{courseName}</p>
+            </div>
           </div>
-        </div>
 
-        <div className="level-right">
-          <div className="level-item">
-            {!isInCart && ( // don't display the add button if the course is in the cart
-              <a
-                className="button is-info is-light"
-                onClick={e => handleAddButtonClick(e)}
-              >
-                Add To Cart
-              </a>
-            )}
+          <div className="level-right">
+            <div className="level-item">
+              {!isInCart && ( // don't display the add button if the course is in the cart
+                <a
+                  className="button is-info is-light"
+                  onClick={e => handleAddButtonClick(e)}
+                >
+                  Add To Cart
+                </a>
+              )}
+            </div>
           </div>
-        </div>
-      </CourseWrapper>
+        </CourseWrapper>
+      )}
     </>
   )
 }
