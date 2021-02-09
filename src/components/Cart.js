@@ -25,7 +25,9 @@ const Cart = props => {
     <div className={dropdownClassName}>
       <div className="dropdown-trigger">
         <button
-          className="button is-primary is-medium"
+          className={
+            'button is-medium ' + (cart.length < 7 ? 'is-primary' : 'is-danger')
+          }
           onClick={e => toggleDropdown(e)}
         >
           {cart.length < 7 ? <> Cart ({cart.length}) </> : <> Cart Full! </>}
